@@ -1,3 +1,3 @@
-import _ from "lodash"
+import _array from "lodash/array";
 
-export default _
+export default _array;
