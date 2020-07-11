@@ -1,0 +1,17 @@
+{
+  "name": "example02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup --config rollup.config.js"
+  },
+  "author": "atomjaylee",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-node-resolve": "^8.1.0",
+    "lodash": "^4.17.19",
+    "rollup": "^2.21.0"
+  }
+}
