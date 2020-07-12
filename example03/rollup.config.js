@@ -7,6 +7,9 @@ export default {
     format: "cjs",
   },
   plugins: [
-    babel()
+    babel({
+      babelHelpers: 'runtime',
+      include: ['./index.js']
+    })
   ]
 };
