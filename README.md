@@ -15,3 +15,6 @@ Rollup 主要用于库的打包处理，Webpack 主要用于我们业务代码�
 ### [Example03](./example03/README.md)
 
 本例子主要针对 ES6 语法进行转换和 babel 的常用配置
+
+### [Example04](./example04/README.md)
+本例子主要针对Vue语法的转换 + jsx

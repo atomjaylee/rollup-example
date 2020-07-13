@@ -37,4 +37,5 @@ module.exports = {
   plugins: ["@babel/plugin-transform-runtime"],
 };
 ```
-这样代码转换成ES5代码，并且为Promise，Symbol等语法在运行时加入polyfill，我们可以通过`@rollup/plugin-babel`配置的`include`和`exclude`来决定babel出转换范围
+
+这样代码转换成 ES5 代码，并且为 Promise，Symbol 等语法在运行时加入 polyfill，我们可以通过`@rollup/plugin-babel`配置的`include`和`exclude`来决定 babel 出转换范围,但是需要注意的是 Rollup 原生支持 Tree-Sharking 的原因，会剔除我们引入的代码但是未用到的代码，可 babel 会将这些没用代码中的 ES6 的 polyfill 也导入进来
