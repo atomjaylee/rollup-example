@@ -7,5 +7,11 @@ export default {
     file: "dist/bundle.js",
     format: "cjs",
   },
-  plugins: [Babel(), Vue()],
+  plugins: [
+    Vue(),
+    Babel({
+      babelHelpers: "runtime",
+      extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".vue"], // 否则template模式下会出现编译后出现const的情况
+    }),
+  ],
 };

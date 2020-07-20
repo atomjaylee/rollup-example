@@ -54,3 +54,42 @@ module.exports = {
 ```
 
 通过上述配置，所有 vue 代码形式就都可以编译成 commonJs 模块
+
+现在编译出来 vue 会变成 render 模式，但是存在问题就是.vue 文件中 ES6 中新语法还是转换不过来，所以还是需要添加 babel 的 polyfill 功能， 根据 example03 配置，修改配置为
+
+```js
+// babel.config.js
+
+module.exports = {
+  presets: [
+    "@vue/babel-preset-jsx",
+    [
+      "@babel/preset-env",
+      {
+        modules: false, // 不进行语法转换
+        useBuiltIns: "usage", // 按需导入polyfill
+        corejs: 3, // 使用core-js 3版本
+      },
+    ],
+  ],
+  plugins: ["@babel/plugin-transform-runtime"],
+};
+```
+
+```js
+// rollup.config.js
+export default {
+  input: "./index.js",
+  output: {
+    file: "dist/bundle.js",
+    format: "cjs",
+  },
+  plugins: [
+    Vue(),
+    Babel({
+      babelHelpers: "runtime",
+      extensions: [".js", ".jsx", ".es6", ".es", ".mjs", ".vue"], // 否则template模式下会出现编译后出现const的情况
+    }),
+  ],
+};
+```
